@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>韩智慧的博客</title>
+  <title>Archives: 1940/10 | 韩智慧的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="韩智慧的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/1940/10/index.html">
 <meta property="og:site_name" content="韩智慧的博客">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -198,64 +198,42 @@
 
       <div class="body-wrap">
   
-    <article id="post-new-post" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/1940/10/24/new-post/" class="article-date">
-  	<time datetime="1940-10-24T02:26:18.955Z" itemprop="datePublished">1940-10-24</time>
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/1940" class="archive-year">1940</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/1940/10/24/new-post/" class="archive-article-date">
+  	<time datetime="1940-10-24T02:26:18.955Z" itemprop="datePublished">Oct 24</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>全局安装hexo<br>npm install -g hexo #全局安装hexo<br>hexo init myblog #新建myblog文件夹，并初始化<br>npm install #安装所需的所有hexo模块<br>$ hexo new “My New Post” #新建博文 hexo n<br>$ hexo server #启动本地4000端口服务器 hexo s<br>$ hexo generate #编译生成静态HTML文件 hexo g<br>$ hexo deploy #部署到远程网站 hexo d</p>
-<p>在Github<br>1 创建repository hanwisdom.github.io<br>SSH地址应为 git@github.com:hanwisdom/hanwisdom.github.io.git</p>
-<p>2 ssh-keygen -t rsa -C “$your_email”,一直按enter。 #SSH公钥私匙获取<br>  cd ~/.ssh #进入公私钥文件夹<br>  cat id_rsa.pub #直接显示公钥的全部字串码<br>  新建SSH公钥，把全部字串码复制到SSH公钥</p>
-<p>3 $ ssh -T git@github.com #输入命令应显示如下<br>Warning: Permanently added the RSA host key for IP address ‘192.48.252.150’ to </p>
-<p>the list of known hosts.<br>Enter passphrase for key ‘/c/Documents and Settings/Administrator/.ssh/id_rsa’:<br>再输入密码，应显示如下<br>Hi hanwisdom! You’ve successfully authenticated, but GitHub does not provide </p>
-<p>shell access.</p>
-<p>4发布到github<br>打开Hexo本地文件夹的“_config.yml”，编辑以下代码<br>deploy:<br>    type: github<br>    repository: git@github.com:hanwisdom/hanwisdom.github.io.git<br>    branch: master </p>
-<p>5 echo “# hanwisdom.github.io” &gt;&gt; README.md<br>  git init<br>  git add README.md<br>  git commit -m “first commit”<br>  git remote add origin git@github.com:hanwisdom/hanwisdom.github.io.git<br>  git push -u origin master</p>
-<p>6 npm install hexo-deployer-git –save<br>  hexo generate –deploy #每次修改本地文件后，必须generate编译保存再远程部署。</p>
-<p>7 打开<a href="https://github.com/hanwisdom/hanwisdom.github.io" target="_blank" rel="external">https://github.com/hanwisdom/hanwisdom.github.io</a> #显示代码上传成了<br>  游览器打开<a href="http://hanwisdom.github.io/" target="_blank" rel="external">http://hanwisdom.github.io/</a> #出现你的博客</p>
-<p>8 如何更换主题theme<br>  github.com 搜索hexo-theme,选择light主题为例，下载zip,解压到本地themes下，简化文</p>
-<p>件夹名字，再在_config.yml中相应位置改为theme: light。</p>
-<p>  也可以命令行 git clone <a href="https://github.com/zippera/light.git" target="_blank" rel="external">https://github.com/zippera/light.git</a> themes/light</p>
-<p>9 全自动写博客<br>  1.在本地安装pm2(一个可在后台永久打开一个node小程序的 nodejs应用，也可以监控文件</p>
-<p>变化)<br>  sudo npm install -g pm2<br>  2.在 博客的source下新建 start.js，内容如下<br>var process = require(‘child_process’);</p>
-<p>process.exec(‘ hexo g -d’, function (error, stdout, stderr) {<br>    if (error !== null) {<br>      console.log(‘exec error: ‘ + error);<br>    }<br>});<br>  3.在同级目录下创建 watch.json,内容如下<br>{<br>  “apps” : [{<br>    “name”       : “blog”,<br>    “script”     : “./start.js”,<br>    “exec_interpreter”: “node”,<br>    “exec_mode”  : “fork_mode”,<br>    “watch”      : “_posts”<br>  }]<br>}<br>  4.使用pm2命令实现监控文件变动自动提交<br>    pm2 start watch.json<br>    你可以把_post目录创建一个快捷方式到桌面，以后写博客直接打开文件夹进行新建文件<br>修改文件，即可实现自动上传</p>
+        </div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
 </article>
-
-
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -279,9 +257,9 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

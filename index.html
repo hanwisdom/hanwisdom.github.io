@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+						<a href="/tags/browsersync实时刷新/" style="font-size: 10px;">browsersync实时刷新</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp自动化/" style="font-size: 10px;">gulp自动化</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/requirejs工程化/" style="font-size: 10px;">requirejs工程化</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,88 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-requirejs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/03/requirejs/" class="article-date">
+  	<time datetime="2016-02-03T11:33:16.000Z" itemprop="datePublished">2016-02-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/03/requirejs/">requirejs工程化,gulp自动化,browsersync实时刷新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>npm install requirejs</p>
+<p>在www/src/js/lib下<br>01 npm install -g bower<br>02 bower install jquery<br>03 bower install requirejs<br>这样就出现bower_components文件夹下面有jquery和requirejs</p>
+<p>配置main.js文件,这是app下index.js的配置文件，即入口文件<br>requirejs.config({<br>  base: “./src/js”,<br>  paths: {<br>      ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>});</p>
+<p>requirejs([‘app/index’]);</p>
+<p>配置build.js文件<br>({<br>    baseUrl: “.”,<br>    paths: {<br>        ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>    },<br>    name: “main”,<br>    out: “../../dist/js/index.merge.min.js”<br>})</p>
+<p>//执行r.js -o build.js  合并功能<br>r.js的build.js可以把所有的JS合并成dist下index.merge.min.js<br>后面这个功能与gulp uglify一起使用来合并压缩所有的JS为一个文件</p>
+<p>在www下npm install -g gulp<br>出现node_modules下gulp<br>继续npm install gulp-requirejs<br>    npm install gulp-minify-css<br>    npm install gulp-uglify<br>    npm install gulp-concat<br>    npm install gulp-rename<br>    npm install gulp-clean<br>上面可以用cnpm <a href="http://www.ydcss.com/archives/18#lesson5" target="_blank" rel="external">http://www.ydcss.com/archives/18#lesson5</a></p>
+<p>新建gulpfile.js<br>var gulp = require(‘gulp’);<br>var rjs = require(‘gulp-requirejs’);</p>
+<p>var minifycss = require(‘gulp-minify-css’),<br>    uglify = require(‘gulp-uglify’),<br>    concat = require(‘gulp-concat’),<br>    rename = require(‘gulp-rename’),<br>    clean = require(‘gulp-clean’);</p>
+<p>gulp.task(‘css-index’, function() {<br>     gulp.src(“./src/css/*.css”)<br>    .pipe(concat(‘index.merge.min.css’))<br>    .pipe(minifycss())<br>    .pipe(gulp.dest(‘./dist/css/‘));<br>});</p>
+<p>gulp.task(‘js-index’, function() {<br>    rjs({<br>        baseUrl: “./src/js”,<br>        paths: {<br>            ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>        },<br>        name: “main”,<br>        out: “index.merge.min.js”<br>    })<br>    .pipe(uglify())<br>    .pipe(gulp.dest(“./dist/js”));</p>
+<pre><code>gulp.src(&quot;./src/js/lib/bower_components/requirejs/require.js&quot;)
+    .pipe(uglify())
+    .pipe(rename({
+        suffix: &apos;.min&apos;
+    }))
+    .pipe(gulp.dest(&apos;./dist/js&apos;));
+</code></pre><p>});</p>
+<p>var browserSync = require(‘browser-sync’).create();</p>
+<p>gulp.task(‘watch’, [‘js-index’, ‘css-index’], function() {<br>    browserSync.reload();<br>});</p>
+<p>gulp.task(‘server’, function() {<br>    browserSync.init({<br>        server: {<br>            baseDir: “./“<br>        }<br>    });</p>
+<pre><code>gulp.watch([&apos;./src/**/*.css&apos;, &apos;./src/**/*.js&apos;, &apos;./*.html&apos;], [&apos;watch&apos;]);
+</code></pre><p>});</p>
+<p>//CSS和JS压缩合并这两个任务组合起来 执行gulp<br>gulp.task(‘default’, [‘css-index’, ‘js-index’]);</p>
+<p>执行npm install -g browser-sync<br>browser-sync -h<br>browser-sync start –server –file=”*”<br>当更改源码时，游览器自动更新，但以上命令符只对HTML生效<br>要想把这个继承到CSS和JS改动上，需要在gulpfile.js里配置</p>
+<p>官方文档www.browsersync.io/docs/gulp<br>执行gulp server会自动启动3000端口的页面</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browsersync实时刷新/">browsersync实时刷新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp自动化/">gulp自动化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requirejs工程化/">requirejs工程化</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-new-post" class="article article-type-post" itemscope itemprop="blogPost">
   

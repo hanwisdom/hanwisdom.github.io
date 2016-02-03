@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>requirejs工程化,gulp自动化,browsersync实时刷新 | 韩智慧的博客</title>
+  <title>requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚 | 韩智慧的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="npm install requirejs
-在www/src/js/lib下01 npm install -g bower02 bower install jquery03 bower install requirejs这样就出现bower_components文件夹下面有jquery和requirejs
-配置main.js文件,这是app下index.js的配置文件，即入口文件requirejs">
+  <meta name="description" content="1npm install requirejs
+在www/src/js/lib下12301 npm install -g bower02 bower install jquery03 bower install requirejs
+这样就出现bower_components文件夹下面有jquery和requirejs
+配置main.js文件,这是app下index.js的配置文件，即入口文件1req">
 <meta property="og:type" content="article">
-<meta property="og:title" content="requirejs工程化,gulp自动化,browsersync实时刷新">
+<meta property="og:title" content="requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚">
 <meta property="og:url" content="http://yoursite.com/2016/02/03/requirejs/index.html">
 <meta property="og:site_name" content="韩智慧的博客">
-<meta property="og:description" content="npm install requirejs
-在www/src/js/lib下01 npm install -g bower02 bower install jquery03 bower install requirejs这样就出现bower_components文件夹下面有jquery和requirejs
-配置main.js文件,这是app下index.js的配置文件，即入口文件requirejs">
-<meta property="og:updated_time" content="2016-02-03T11:38:56.000Z">
+<meta property="og:description" content="1npm install requirejs
+在www/src/js/lib下12301 npm install -g bower02 bower install jquery03 bower install requirejs
+这样就出现bower_components文件夹下面有jquery和requirejs
+配置main.js文件,这是app下index.js的配置文件，即入口文件1req">
+<meta property="og:updated_time" content="2016-02-03T12:32:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="requirejs工程化,gulp自动化,browsersync实时刷新">
-<meta name="twitter:description" content="npm install requirejs
-在www/src/js/lib下01 npm install -g bower02 bower install jquery03 bower install requirejs这样就出现bower_components文件夹下面有jquery和requirejs
-配置main.js文件,这是app下index.js的配置文件，即入口文件requirejs">
+<meta name="twitter:title" content="requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚">
+<meta name="twitter:description" content="1npm install requirejs
+在www/src/js/lib下12301 npm install -g bower02 bower install jquery03 bower install requirejs
+这样就出现bower_components文件夹下面有jquery和requirejs
+配置main.js文件,这是app下index.js的配置文件，即入口文件1req">
   
     <link rel="alternative" href="/atom.xml" title="韩智慧的博客" type="application/atom+xml">
   
@@ -220,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      requirejs工程化,gulp自动化,browsersync实时刷新
+      requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚
     </h1>
   
 
@@ -240,31 +243,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>npm install requirejs</p>
-<p>在www/src/js/lib下<br>01 npm install -g bower<br>02 bower install jquery<br>03 bower install requirejs<br>这样就出现bower_components文件夹下面有jquery和requirejs</p>
-<p>配置main.js文件,这是app下index.js的配置文件，即入口文件<br>requirejs.config({<br>  base: “./src/js”,<br>  paths: {<br>      ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>});</p>
-<p>requirejs([‘app/index’]);</p>
-<p>配置build.js文件<br>({<br>    baseUrl: “.”,<br>    paths: {<br>        ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>    },<br>    name: “main”,<br>    out: “../../dist/js/index.merge.min.js”<br>})</p>
+        <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> requirejs</span><br></pre></td></tr></table></figure>
+<p>在www/src/js/lib下<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">01 npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> bower</span><br><span class="line"><span class="number">02</span> bower <span class="keyword">install</span> jquery</span><br><span class="line"><span class="number">03</span> bower <span class="keyword">install</span> requirejs</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就出现bower_components文件夹下面有jquery和requirejs</p>
+<p>配置main.js文件,这是app下index.js的配置文件，即入口文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirejs.config(&#123;&#10;  base: &#34;./src/js&#34;,  &#10;  paths: &#123;&#10;  &#9;&#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;&#125;);&#10;&#10;requirejs([&#39;app/index&#39;]);</span><br></pre></td></tr></table></figure></p>
+<p>配置build.js文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;&#10;    baseUrl: &#34;.&#34;,&#10;    paths: &#123;&#10;        &#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;    &#125;,&#10;    name: &#34;main&#34;,&#10;    out: &#34;../../dist/js/index.merge.min.js&#34;&#10;&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>//执行r.js -o build.js  合并功能<br>r.js的build.js可以把所有的JS合并成dist下index.merge.min.js<br>后面这个功能与gulp uglify一起使用来合并压缩所有的JS为一个文件</p>
-<p>在www下npm install -g gulp<br>出现node_modules下gulp<br>继续npm install gulp-requirejs<br>    npm install gulp-minify-css<br>    npm install gulp-uglify<br>    npm install gulp-concat<br>    npm install gulp-rename<br>    npm install gulp-clean<br>上面可以用cnpm <a href="http://www.ydcss.com/archives/18#lesson5" target="_blank" rel="external">http://www.ydcss.com/archives/18#lesson5</a></p>
-<p>新建gulpfile.js<br>var gulp = require(‘gulp’);<br>var rjs = require(‘gulp-requirejs’);</p>
-<p>var minifycss = require(‘gulp-minify-css’),<br>    uglify = require(‘gulp-uglify’),<br>    concat = require(‘gulp-concat’),<br>    rename = require(‘gulp-rename’),<br>    clean = require(‘gulp-clean’);</p>
-<p>gulp.task(‘css-index’, function() {<br>     gulp.src(“./src/css/*.css”)<br>    .pipe(concat(‘index.merge.min.css’))<br>    .pipe(minifycss())<br>    .pipe(gulp.dest(‘./dist/css/‘));<br>});</p>
-<p>gulp.task(‘js-index’, function() {<br>    rjs({<br>        baseUrl: “./src/js”,<br>        paths: {<br>            ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>        },<br>        name: “main”,<br>        out: “index.merge.min.js”<br>    })<br>    .pipe(uglify())<br>    .pipe(gulp.dest(“./dist/js”));</p>
-<pre><code>gulp.src(&quot;./src/js/lib/bower_components/requirejs/require.js&quot;)
-    .pipe(uglify())
-    .pipe(rename({
-        suffix: &apos;.min&apos;
-    }))
-    .pipe(gulp.dest(&apos;./dist/js&apos;));
-</code></pre><p>});</p>
-<p>var browserSync = require(‘browser-sync’).create();</p>
-<p>gulp.task(‘watch’, [‘js-index’, ‘css-index’], function() {<br>    browserSync.reload();<br>});</p>
-<p>gulp.task(‘server’, function() {<br>    browserSync.init({<br>        server: {<br>            baseDir: “./“<br>        }<br>    });</p>
-<pre><code>gulp.watch([&apos;./src/**/*.css&apos;, &apos;./src/**/*.js&apos;, &apos;./*.html&apos;], [&apos;watch&apos;]);
-</code></pre><p>});</p>
-<p>//CSS和JS压缩合并这两个任务组合起来 执行gulp<br>gulp.task(‘default’, [‘css-index’, ‘js-index’]);</p>
-<p>执行npm install -g browser-sync<br>browser-sync -h<br>browser-sync start –server –file=”*”<br>当更改源码时，游览器自动更新，但以上命令符只对HTML生效<br>要想把这个继承到CSS和JS改动上，需要在gulpfile.js里配置</p>
+<p>在www下<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> gulp</span></span><br></pre></td></tr></table></figure></p>
+<p>出现node_modules下gulp<br>继续</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-requirejs&#10;    npm install gulp-minify-css&#10;    npm install gulp-uglify&#10;    npm install gulp-concat&#10;    npm install gulp-rename&#10;    npm install gulp-clean</span><br></pre></td></tr></table></figure>
+<p>上面可以用cnpm 参见<a href="http://www.ydcss.com/archives/18#lesson5" target="_blank" rel="external">http://www.ydcss.com/archives/18#lesson5</a></p>
+<p>新建gulpfile.js </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&#39;gulp&#39;);&#10;var rjs = require(&#39;gulp-requirejs&#39;);&#10;&#10;&#10;var minifycss = require(&#39;gulp-minify-css&#39;), &#10;    uglify = require(&#39;gulp-uglify&#39;),&#10;    concat = require(&#39;gulp-concat&#39;), &#10;    rename = require(&#39;gulp-rename&#39;), &#10;    clean = require(&#39;gulp-clean&#39;);&#10;&#10;gulp.task(&#39;css-index&#39;, function() &#123;&#10;     gulp.src(&#34;./src/css/*.css&#34;)&#10;    .pipe(concat(&#39;index.merge.min.css&#39;))      &#10;    .pipe(minifycss()) &#10;    .pipe(gulp.dest(&#39;./dist/css/&#39;));&#10;&#125;);&#10;&#10;gulp.task(&#39;js-index&#39;, function() &#123;&#10;    rjs(&#123;&#10;        baseUrl: &#34;./src/js&#34;,&#10;        paths: &#123;&#10;            &#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;        &#125;,&#10;        name: &#34;main&#34;,&#10;        out: &#34;index.merge.min.js&#34;&#10;    &#125;)&#10;    .pipe(uglify())&#10;    .pipe(gulp.dest(&#34;./dist/js&#34;));&#10;&#10;    gulp.src(&#34;./src/js/lib/bower_components/requirejs/require.js&#34;)&#10;        .pipe(uglify())&#10;        .pipe(rename(&#123;&#10;            suffix: &#39;.min&#39;&#10;        &#125;))&#10;        .pipe(gulp.dest(&#39;./dist/js&#39;));&#10;&#10;&#125;);&#10;&#10;var browserSync = require(&#39;browser-sync&#39;).create();&#10;&#10;gulp.task(&#39;watch&#39;, [&#39;js-index&#39;, &#39;css-index&#39;], function() &#123;&#10;    browserSync.reload();&#10;&#125;);&#10;&#10;gulp.task(&#39;server&#39;, function() &#123;&#10;    browserSync.init(&#123;&#10;        server: &#123;&#10;            baseDir: &#34;./&#34;&#10;        &#125;&#10;    &#125;);&#10;&#10;    gulp.watch([&#39;./src/**/*.css&#39;, &#39;./src/**/*.js&#39;, &#39;./*.html&#39;], [&#39;watch&#39;]);&#10;&#125;);&#10;&#10;//CSS&#21644;JS&#21387;&#32553;&#21512;&#24182;&#36825;&#20004;&#20010;&#20219;&#21153;&#32452;&#21512;&#36215;&#26469; &#25191;&#34892;gulp &#10;gulp.task(&#39;default&#39;, [&#39;css-index&#39;, &#39;js-index&#39;]);</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> browser-<span class="keyword">sync</span></span><br><span class="line">browser-<span class="keyword">sync</span> -h</span><br><span class="line">browser-<span class="keyword">sync</span> <span class="keyword">start</span> <span class="comment">--server --file="*"</span></span></span><br></pre></td></tr></table></figure>
+<p>当更改源码时，游览器自动更新，但以上命令符只对HTML生效<br>要想把这个继承到CSS和JS改动上，需要在gulpfile.js里配置</p>
 <p>官方文档www.browsersync.io/docs/gulp<br>执行gulp server会自动启动3000端口的页面</p>
 
       
@@ -277,7 +270,7 @@
   
   
     <a href="/2016/02/03/new-post/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用github.io搭建hexo博客</div>
+      <div class="article-nav-title">用github.io搭建hexo博客 100-101 hexo 若愚</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -312,7 +305,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="requirejs" data-title="requirejs工程化,gulp自动化,browsersync实时刷新" data-url="http://yoursite.com/2016/02/03/requirejs/"></div>
+	<div class="ds-thread" data-thread-key="requirejs" data-title="requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚" data-url="http://yoursite.com/2016/02/03/requirejs/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

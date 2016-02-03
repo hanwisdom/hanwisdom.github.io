@@ -215,7 +215,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/03/requirejs/">requirejs工程化,gulp自动化,browsersync实时刷新</a>
+      <a class="article-title" href="/2016/02/03/requirejs/">requirejs工程化,gulp自动化,browsersync实时刷新 96-97集 若愚</a>
     </h1>
   
 
@@ -224,31 +224,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>npm install requirejs</p>
-<p>在www/src/js/lib下<br>01 npm install -g bower<br>02 bower install jquery<br>03 bower install requirejs<br>这样就出现bower_components文件夹下面有jquery和requirejs</p>
-<p>配置main.js文件,这是app下index.js的配置文件，即入口文件<br>requirejs.config({<br>  base: “./src/js”,<br>  paths: {<br>      ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>});</p>
-<p>requirejs([‘app/index’]);</p>
-<p>配置build.js文件<br>({<br>    baseUrl: “.”,<br>    paths: {<br>        ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>    },<br>    name: “main”,<br>    out: “../../dist/js/index.merge.min.js”<br>})</p>
+        <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> requirejs</span><br></pre></td></tr></table></figure>
+<p>在www/src/js/lib下<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">01 npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> bower</span><br><span class="line"><span class="number">02</span> bower <span class="keyword">install</span> jquery</span><br><span class="line"><span class="number">03</span> bower <span class="keyword">install</span> requirejs</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就出现bower_components文件夹下面有jquery和requirejs</p>
+<p>配置main.js文件,这是app下index.js的配置文件，即入口文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirejs.config(&#123;&#10;  base: &#34;./src/js&#34;,  &#10;  paths: &#123;&#10;  &#9;&#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;&#125;);&#10;&#10;requirejs([&#39;app/index&#39;]);</span><br></pre></td></tr></table></figure></p>
+<p>配置build.js文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;&#10;    baseUrl: &#34;.&#34;,&#10;    paths: &#123;&#10;        &#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;    &#125;,&#10;    name: &#34;main&#34;,&#10;    out: &#34;../../dist/js/index.merge.min.js&#34;&#10;&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>//执行r.js -o build.js  合并功能<br>r.js的build.js可以把所有的JS合并成dist下index.merge.min.js<br>后面这个功能与gulp uglify一起使用来合并压缩所有的JS为一个文件</p>
-<p>在www下npm install -g gulp<br>出现node_modules下gulp<br>继续npm install gulp-requirejs<br>    npm install gulp-minify-css<br>    npm install gulp-uglify<br>    npm install gulp-concat<br>    npm install gulp-rename<br>    npm install gulp-clean<br>上面可以用cnpm <a href="http://www.ydcss.com/archives/18#lesson5" target="_blank" rel="external">http://www.ydcss.com/archives/18#lesson5</a></p>
-<p>新建gulpfile.js<br>var gulp = require(‘gulp’);<br>var rjs = require(‘gulp-requirejs’);</p>
-<p>var minifycss = require(‘gulp-minify-css’),<br>    uglify = require(‘gulp-uglify’),<br>    concat = require(‘gulp-concat’),<br>    rename = require(‘gulp-rename’),<br>    clean = require(‘gulp-clean’);</p>
-<p>gulp.task(‘css-index’, function() {<br>     gulp.src(“./src/css/*.css”)<br>    .pipe(concat(‘index.merge.min.css’))<br>    .pipe(minifycss())<br>    .pipe(gulp.dest(‘./dist/css/‘));<br>});</p>
-<p>gulp.task(‘js-index’, function() {<br>    rjs({<br>        baseUrl: “./src/js”,<br>        paths: {<br>            ‘jquery’: ‘lib/bower_components/jquery/dist/jquery.min’<br>        },<br>        name: “main”,<br>        out: “index.merge.min.js”<br>    })<br>    .pipe(uglify())<br>    .pipe(gulp.dest(“./dist/js”));</p>
-<pre><code>gulp.src(&quot;./src/js/lib/bower_components/requirejs/require.js&quot;)
-    .pipe(uglify())
-    .pipe(rename({
-        suffix: &apos;.min&apos;
-    }))
-    .pipe(gulp.dest(&apos;./dist/js&apos;));
-</code></pre><p>});</p>
-<p>var browserSync = require(‘browser-sync’).create();</p>
-<p>gulp.task(‘watch’, [‘js-index’, ‘css-index’], function() {<br>    browserSync.reload();<br>});</p>
-<p>gulp.task(‘server’, function() {<br>    browserSync.init({<br>        server: {<br>            baseDir: “./“<br>        }<br>    });</p>
-<pre><code>gulp.watch([&apos;./src/**/*.css&apos;, &apos;./src/**/*.js&apos;, &apos;./*.html&apos;], [&apos;watch&apos;]);
-</code></pre><p>});</p>
-<p>//CSS和JS压缩合并这两个任务组合起来 执行gulp<br>gulp.task(‘default’, [‘css-index’, ‘js-index’]);</p>
-<p>执行npm install -g browser-sync<br>browser-sync -h<br>browser-sync start –server –file=”*”<br>当更改源码时，游览器自动更新，但以上命令符只对HTML生效<br>要想把这个继承到CSS和JS改动上，需要在gulpfile.js里配置</p>
+<p>在www下<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> gulp</span></span><br></pre></td></tr></table></figure></p>
+<p>出现node_modules下gulp<br>继续</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-requirejs&#10;    npm install gulp-minify-css&#10;    npm install gulp-uglify&#10;    npm install gulp-concat&#10;    npm install gulp-rename&#10;    npm install gulp-clean</span><br></pre></td></tr></table></figure>
+<p>上面可以用cnpm 参见<a href="http://www.ydcss.com/archives/18#lesson5" target="_blank" rel="external">http://www.ydcss.com/archives/18#lesson5</a></p>
+<p>新建gulpfile.js </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&#39;gulp&#39;);&#10;var rjs = require(&#39;gulp-requirejs&#39;);&#10;&#10;&#10;var minifycss = require(&#39;gulp-minify-css&#39;), &#10;    uglify = require(&#39;gulp-uglify&#39;),&#10;    concat = require(&#39;gulp-concat&#39;), &#10;    rename = require(&#39;gulp-rename&#39;), &#10;    clean = require(&#39;gulp-clean&#39;);&#10;&#10;gulp.task(&#39;css-index&#39;, function() &#123;&#10;     gulp.src(&#34;./src/css/*.css&#34;)&#10;    .pipe(concat(&#39;index.merge.min.css&#39;))      &#10;    .pipe(minifycss()) &#10;    .pipe(gulp.dest(&#39;./dist/css/&#39;));&#10;&#125;);&#10;&#10;gulp.task(&#39;js-index&#39;, function() &#123;&#10;    rjs(&#123;&#10;        baseUrl: &#34;./src/js&#34;,&#10;        paths: &#123;&#10;            &#39;jquery&#39;: &#39;lib/bower_components/jquery/dist/jquery.min&#39;&#10;        &#125;,&#10;        name: &#34;main&#34;,&#10;        out: &#34;index.merge.min.js&#34;&#10;    &#125;)&#10;    .pipe(uglify())&#10;    .pipe(gulp.dest(&#34;./dist/js&#34;));&#10;&#10;    gulp.src(&#34;./src/js/lib/bower_components/requirejs/require.js&#34;)&#10;        .pipe(uglify())&#10;        .pipe(rename(&#123;&#10;            suffix: &#39;.min&#39;&#10;        &#125;))&#10;        .pipe(gulp.dest(&#39;./dist/js&#39;));&#10;&#10;&#125;);&#10;&#10;var browserSync = require(&#39;browser-sync&#39;).create();&#10;&#10;gulp.task(&#39;watch&#39;, [&#39;js-index&#39;, &#39;css-index&#39;], function() &#123;&#10;    browserSync.reload();&#10;&#125;);&#10;&#10;gulp.task(&#39;server&#39;, function() &#123;&#10;    browserSync.init(&#123;&#10;        server: &#123;&#10;            baseDir: &#34;./&#34;&#10;        &#125;&#10;    &#125;);&#10;&#10;    gulp.watch([&#39;./src/**/*.css&#39;, &#39;./src/**/*.js&#39;, &#39;./*.html&#39;], [&#39;watch&#39;]);&#10;&#125;);&#10;&#10;//CSS&#21644;JS&#21387;&#32553;&#21512;&#24182;&#36825;&#20004;&#20010;&#20219;&#21153;&#32452;&#21512;&#36215;&#26469; &#25191;&#34892;gulp &#10;gulp.task(&#39;default&#39;, [&#39;css-index&#39;, &#39;js-index&#39;]);</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> browser-<span class="keyword">sync</span></span><br><span class="line">browser-<span class="keyword">sync</span> -h</span><br><span class="line">browser-<span class="keyword">sync</span> <span class="keyword">start</span> <span class="comment">--server --file="*"</span></span></span><br></pre></td></tr></table></figure>
+<p>当更改源码时，游览器自动更新，但以上命令符只对HTML生效<br>要想把这个继承到CSS和JS改动上，需要在gulpfile.js里配置</p>
 <p>官方文档www.browsersync.io/docs/gulp<br>执行gulp server会自动启动3000端口的页面</p>
 
       
@@ -297,7 +287,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/03/new-post/">用github.io搭建hexo博客</a>
+      <a class="article-title" href="/2016/02/03/new-post/">用github.io搭建hexo博客 100-101 hexo 若愚</a>
     </h1>
   
 
@@ -306,20 +296,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>全局安装hexo<br>npm install -g hexo #全局安装hexo<br>hexo init myblog #新建myblog文件夹，并初始化<br>npm install #安装所需的所有hexo模块<br>$ hexo new “My New Post” #新建博文 hexo n<br>$ hexo server #启动本地4000端口服务器 hexo s<br>$ hexo generate #编译生成静态HTML文件 hexo g<br>$ hexo deploy #部署到远程网站 hexo d</p>
+        <p>全局安装hexo<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo <span class="comment">#全局安装hexo </span></span><br><span class="line">hexo init myblog <span class="comment">#新建myblog文件夹，并初始化</span></span><br><span class="line">npm install <span class="comment">#安装所需的所有hexo模块</span></span><br><span class="line"><span class="variable">$ </span>hexo new <span class="string">"My New Post"</span> <span class="comment">#新建博文 hexo n</span></span><br><span class="line"><span class="variable">$ </span>hexo server <span class="comment">#启动本地4000端口服务器 hexo s</span></span><br><span class="line"><span class="variable">$ </span>hexo generate <span class="comment">#编译生成静态HTML文件 hexo g</span></span><br><span class="line"><span class="variable">$ </span>hexo deploy <span class="comment">#部署到远程网站 hexo d</span></span><br></pre></td></tr></table></figure></p>
 <p>在Github<br>1 创建repository hanwisdom.github.io<br>SSH地址应为 git@github.com:hanwisdom/hanwisdom.github.io.git</p>
-<p>2 ssh-keygen -t rsa -C “$your_email”,一直按enter。 #SSH公钥私匙获取<br>  cd ~/.ssh #进入公私钥文件夹<br>  cat id_rsa.pub #直接显示公钥的全部字串码<br>  新建SSH公钥，把全部字串码复制到SSH公钥</p>
-<p>3 $ ssh -T git@github.com #输入命令应显示如下<br>Warning: Permanently added the RSA host key for IP address ‘192.48.252.150’ to<br>the list of known hosts.<br>Enter passphrase for key ‘/c/Documents and Settings/Administrator/.ssh/id_rsa’:<br>再输入密码，应显示如下<br>Hi hanwisdom! You’ve successfully authenticated, but GitHub does not provide<br>shell access.</p>
-<p>4发布到github<br>打开Hexo本地文件夹的“_config.yml”，编辑以下代码<br>deploy:<br>    type: github<br>    repository: git@github.com:hanwisdom/hanwisdom.github.io.git<br>    branch: master </p>
-<p>5 echo “# hanwisdom.github.io” &gt;&gt; README.md<br>  git init<br>  git add README.md<br>  git commit -m “first commit”<br>  git remote add origin git@github.com:hanwisdom/hanwisdom.github.io.git<br>  git push -u origin master</p>
-<p>6 npm install hexo-deployer-git –save<br>  hexo generate –deploy #每次修改本地文件后，必须generate编译保存再远程部署。</p>
+<p>2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"<span class="variable">$your_email</span>"</span>,一直按enter。 <span class="comment">#SSH公钥私匙获取</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh <span class="comment">#进入公私钥文件夹</span></span><br><span class="line">cat id_rsa.pub <span class="comment">#直接显示公钥的全部字串码</span></span><br></pre></td></tr></table></figure></p>
+<p>  新建SSH公钥，把全部字串码复制到SSH公钥</p>
+<p>3 输入命令应显示如下<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T</span> git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added <span class="operator">the</span> RSA host key <span class="keyword">for</span> IP address <span class="string">'192.48.252.150'</span> <span class="built_in">to</span> </span><br><span class="line"><span class="operator">the</span> list <span class="operator">of</span> known hosts.</span><br><span class="line">Enter passphrase <span class="keyword">for</span> key <span class="string">'/c/Documents and Settings/Administrator/.ssh/id_rsa'</span>:</span><br></pre></td></tr></table></figure>
+<p>再输入密码，应显示如下</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi hanwisdom! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide </span><br><span class="line">shell access.</span><br></pre></td></tr></table></figure>
+<p>4发布到github<br>打开Hexo本地文件夹的“_config.yml”，编辑以下代码<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: </span><br><span class="line">    <span class="attribute">type</span>: github  </span><br><span class="line">    <span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:hanwisdom/hanwisdom.github.io.git</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
+<p>5<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"# hanwisdom.github.io"</span> &gt;&gt; README<span class="class">.md</span></span><br><span class="line">  git init</span><br><span class="line">  git add README<span class="class">.md</span></span><br><span class="line">  git commit -m <span class="string">"first commit"</span></span><br><span class="line">  git remote add origin git@github<span class="class">.com</span>:hanwisdom/hanwisdom<span class="class">.github</span><span class="class">.io</span><span class="class">.git</span></span><br><span class="line">  git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>6<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">hexo generate <span class="comment">--deploy #每次修改本地文件后，必须generate编译保存再远程部署。</span></span></span><br></pre></td></tr></table></figure></p>
 <p>7 打开<a href="https://github.com/hanwisdom/hanwisdom.github.io" target="_blank" rel="external">https://github.com/hanwisdom/hanwisdom.github.io</a> #显示代码上传成了<br>  游览器打开<a href="http://hanwisdom.github.io/" target="_blank" rel="external">http://hanwisdom.github.io/</a> #出现你的博客</p>
 <p>8 如何更换主题theme<br>  github.com 搜索hexo-theme,选择light主题为例，下载zip,解压到本地themes下，简化文</p>
 <p>件夹名字，再在_config.yml中相应位置改为theme: light。</p>
-<p>  也可以命令行 git clone <a href="https://github.com/zippera/light.git" target="_blank" rel="external">https://github.com/zippera/light.git</a> themes/light</p>
+<p>  也可以命令行<br>  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/zippera/light.git themes/light</span><br></pre></td></tr></table></figure></p>
 <p>9 全自动写博客<br>  1.在本地安装pm2(一个可在后台永久打开一个node小程序的 nodejs应用，也可以监控文件</p>
-<p>变化)<br>  sudo npm install -g pm2<br>  2.在 博客的source下新建 start.js，内容如下<br>var process = require(‘child_process’);</p>
-<p>process.exec(‘ hexo g -d’, function (error, stdout, stderr) {<br>    if (error !== null) {<br>      console.log(‘exec error: ‘ + error);<br>    }<br>});<br>  3.在同级目录下创建 watch.json,内容如下<br>{<br>  “apps” : [{<br>    “name”       : “blog”,<br>    “script”     : “./start.js”,<br>    “exec_interpreter”: “node”,<br>    “exec_mode”  : “fork_mode”,<br>    “watch”      : “_posts”<br>  }]<br>}<br>  4.使用pm2命令实现监控文件变动自动提交<br>    pm2 start watch.json<br>    你可以把_post目录创建一个快捷方式到桌面，以后写博客直接打开文件夹进行新建文件<br>修改文件，即可实现自动上传</p>
+<p>变化)<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> pm2</span></span><br></pre></td></tr></table></figure></p>
+<p>  2.在 博客的source下新建 start.js，内容如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var process = require(&#39;child_process&#39;);&#10;&#10;process.exec(&#39; hexo g -d&#39;, function (error, stdout, stderr) &#123;&#10;    if (error !== null) &#123;&#10;      console.log(&#39;exec error: &#39; + error);&#10;    &#125;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>  3.在同级目录下创建 watch.json,内容如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;  &#34;apps&#34; : [&#123;&#10;    &#34;name&#34;       : &#34;blog&#34;,&#10;    &#34;script&#34;     : &#34;./start.js&#34;,&#10;    &#34;exec_interpreter&#34;: &#34;node&#34;,&#10;    &#34;exec_mode&#34;  : &#34;fork_mode&#34;,&#10;    &#34;watch&#34;      : &#34;_posts&#34;&#10;  &#125;]&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  4.使用pm2命令实现监控文件变动自动提交<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="operator"><span class="keyword">start</span> watch.<span class="keyword">json</span></span></span><br></pre></td></tr></table></figure></p>
+<p>```<br>你可以把_post目录创建一个快捷方式到桌面，以后写博客直接打开文件夹进行新建文件修改文件，即可实现自动上传</p>
 
       
     </div>

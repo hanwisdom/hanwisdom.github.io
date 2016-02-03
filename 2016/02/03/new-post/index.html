@@ -284,6 +284,17 @@
 
 
           
+  
+  <nav id="pagination" >
+    <% if (page.prev) { %>
+    <a href="<%- config.root %><%- page.prev.path %>" class="alignleft prev" ><%= __('prev') %></a>
+    <% } %>
+    <% if (page.next) { %>
+    <a href="<%- config.root %><%- page.next.path %>" class="alignright next" ><%= __('next') %></a>
+    <% } %>
+    <div class="clearfix"></div>
+</nav>
+
   <div class="comments" id="comments">
     <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="/2016/02/03/new-post/index.html" data-title="用github.io搭建Hexo博客" data-url="http://hanwisdom.github.io/2016/02/03/new-post/"></div>

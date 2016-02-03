@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo，博客，github," />
 
 
 
@@ -63,7 +63,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/02/03/new-post/index.html">
 <meta property="og:site_name" content="韩智慧的博客">
 <meta property="og:description" content="全局安装hexonpm install -g hexo #全局安装hexohexo init myblog #新建myblog文件夹，并初始化npm install #安装所需的所有hexo模块$ hexo new “My New Post” #新建博文 hexo n$ hexo server #启动本地4000端口服务器 hexo s$ hexo generate #编译生成静态HTML文件 h">
-<meta property="og:updated_time" content="2016-02-03T08:04:58.000Z">
+<meta property="og:updated_time" content="2016-02-03T08:15:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用github.io搭建Hexo博客">
 <meta name="twitter:description" content="全局安装hexonpm install -g hexo #全局安装hexohexo init myblog #新建myblog文件夹，并初始化npm install #安装所需的所有hexo模块$ hexo new “My New Post” #新建博文 hexo n$ hexo server #启动本地4000端口服务器 hexo s$ hexo generate #编译生成静态HTML文件 h">
@@ -79,7 +79,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -140,7 +140,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            首頁
+            Home
           </a>
         </li>
       
@@ -150,7 +150,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            歸檔
+            Archives
           </a>
         </li>
       
@@ -160,7 +160,7 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-02-03T14:54:11+08:00" content="2016-02-03">
               2016-02-03
             </time>
@@ -257,6 +257,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo，博客，github/" rel="tag">#Hexo，博客，github</a>
+          
+        </div>
+      
 
       
 
@@ -279,7 +285,22 @@
 
           
   <div class="comments" id="comments">
-    
+    <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="/2016/02/03/new-post/index.html" data-title="用github.io搭建Hexo博客" data-url="http://hanwisdom.github.io/2016/02/03/new-post/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hanwisdom"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
   </div>
 
 
@@ -303,10 +324,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Overview
           </li>
         </ul>
       
@@ -323,12 +344,19 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
           
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -358,7 +386,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -388,11 +416,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
